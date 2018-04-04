@@ -33,19 +33,16 @@ public class NeedsWorkMergeCheck implements RepositoryMergeCheck {
                                           @Nonnull PullRequestMergeHookRequest request) {
         Set<PullRequestParticipant> participants = request.getPullRequest().getReviewers();
         Boolean okToMerge = true;
-        System.out.println("#### In RepositoryHookResult!!!  #####");
-        System.out.println("#### Reviewers.size = " + participants.size());
         Iterator<PullRequestParticipant> it = participants.iterator();
         while (it.hasNext()){
             PullRequestParticipant p = it.next();
-            System.out.println("participant status = " + p.getStatus());
             if (p.getStatus() == PullRequestParticipantStatus.NEEDS_WORK ) {
                 okToMerge = false;
                 break;
             }
         }
         Repository repository = request.getPullRequest().getToRef().getRepository(); 
-        if (!okToMerge && !permissionService.hasRepositoryPermission(repository, Permission.REPO_ADMIN)) {
+        if (!okToMerge) {
             String summaryMsg = i18nService.getText("vestmark.plugin.merge.check.needswork.summary",
                     "Merges are blocked if at least one reviewer has marked the Pull Request with a \"NEEDS WORK\" recommendation.");
             String detailedMsg = i18nService.getText("vestmark.plugin.merge.check.needswork.detailed",
