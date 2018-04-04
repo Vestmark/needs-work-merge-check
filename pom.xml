@@ -6,15 +6,15 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.vestmark.bitbucket</groupId>
     <artifactId>needs-work-merge-check</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.1</version>
 
     <organization>
-        <name>Example Company</name>
-        <url>http://www.example.com/</url>
+        <name>Vestmark</name>
+        <url>http://www.vestmark,com</url>
     </organization>
 
     <name>needs-work-merge-check</name>
-    <description>This is the com.vestmark.bitbucket:needs-work-merge-check plugin for Atlassian Bitbucket Server.</description>
+    <description>This is the Needs-Work Merge Check plugin for Atlassian Bitbucket Server.</description>
     <packaging>atlassian-plugin</packaging>
 
     <dependencyManagement>
